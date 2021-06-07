@@ -1,3 +1,5 @@
+const { badwords } = require("../root/swearing.json");
+
 module.exports = is_swear;
 
 function is_swear(string) {
