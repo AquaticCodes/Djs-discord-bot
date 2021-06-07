@@ -18,7 +18,7 @@ if (!db.has(`levelcooldown_${message.author.id}`)) {
 addexp(message)
 db.set(`levelcooldown_${message.author.id}`);
 setTimeout(function() {
-db.delete(`levelcooldown_${message.author.id`);
+db.delete(`levelcooldown_${message.author.id}`);
 }, 30000) // for every 30 seconds, add some xp to increase levels to person, 30000 = 30 seconds, you can change it in your code by downloading or hosting it!!!
 }
 
@@ -37,7 +37,7 @@ if(is_url(message.content)) {
 let prefix = db.get(`prefix_${message.guild.id}`);
   if (prefix === null) prefix = bot_prefix;
   if (!message.content.startsWith(prefix)) return;
-  if (!message.member) message.member = await message.guild.members.fetch(message);
+  if (!message.member) message.member = message.guild.members.fetch(message);
 
 const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const cmd = args.shift().toLowerCase();
@@ -57,7 +57,7 @@ const args = message.content.slice(prefix.length).trim().split(/ +/g);
 
 if (command.owner && message.author.id != ownerid) {
 return message.lineReplyNoMention("Only My Developer Can Run This Command!!!");
-} else if (command.admins && !adminsid.includes(message.author.id) {
+} else if (command.admins && !adminsid.includes(message.author.id)) {
 return message.lineReplyNoMention("You Aren't A Staff Member To Execute This Command!!");
 }
 
