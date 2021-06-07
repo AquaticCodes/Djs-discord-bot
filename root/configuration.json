@@ -1,0 +1,6 @@
+{
+"token": "enter your bot's token here",
+"ownerid": "Enter Your ID Here",
+"adminsid": ["id", "id", "follow this way/sequence"],
+"bot_prefix": "enter a default prefix :)"
+}
