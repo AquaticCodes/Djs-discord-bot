@@ -1,0 +1,4 @@
+{
+"name": "enter a status that your bot should have",
+"status": "IDLE | ONLINE | DND"
+}
