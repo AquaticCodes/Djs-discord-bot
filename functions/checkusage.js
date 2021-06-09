@@ -18,3 +18,5 @@ return true;
 }
 }
 }
+
+module.exports = checkusage;
