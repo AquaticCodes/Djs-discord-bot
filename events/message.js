@@ -4,8 +4,9 @@ const db = require("quick.db"); //database
 const { addexp } = require("../handlers/xp.js");
 const { ownerid, adminsid, bot_prefix } = require("../root/configuration.json");
 let cooldown = {}
-const is_url = require("../functions/islink.js");
-const is_swear = require("../functions/isswear.js");
+const { is_url } = require("../functions/islink.js");
+const { checkusage } = require("../functions/islink.js");
+const { is_swear } = require("../functions/isswear.js");
 require("discord-reply");
 
 module.exports.run = async (client, message) => {
@@ -61,6 +62,13 @@ if (command.owner && message.author.id != ownerid) {
 return message.lineReplyNoMention("Only My Developer Can Run This Command!!!");
 } else if (command.admins && !adminsid.includes(message.author.id)) {
 return message.lineReplyNoMention("You Aren't A Staff Member To Execute This Command!!");
+} if (command.args) 
+checkusage(command.args);
+
+if (true) {
+return message.lineReplyNoMention(command.usage);
+}
+
 }
 
 /* P E R M I S S I O N S */
