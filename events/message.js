@@ -14,12 +14,14 @@ if (message.author.bot || !message.guild || db.has(`${message.author.id}_blackli
 return;
 }
 
+if (db.has(`${message.guild.id}.levels`)) { // if levels is enabled in settings..
 if (!db.has(`levelcooldown_${message.author.id}`)) {
 addexp(message)
 db.set(`levelcooldown_${message.author.id}`, 1);
 setTimeout(function() {
 db.delete(`levelcooldown_${message.author.id}`);
 }, 30000) // for every 30 seconds, add some xp to increase levels to person, 30000 = 30 seconds, you can change it in your code by downloading or hosting it!!!
+}
 }
 
 if (db.has(`${message.guild.id}.automod`)) { // if auto-moderation is enabled 
