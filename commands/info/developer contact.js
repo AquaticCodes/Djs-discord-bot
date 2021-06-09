@@ -15,6 +15,15 @@ let button = new MessageButton()
 .setStyle("url")
 .setUrl("https://aquatic.aquaticdev.repl.co");
 
+let gitcode = new MessageButon()
+.setLabel("Github Open-source Code")
+.setStyle("url")
+.setUrl("https://github.com/AquaticCodes/Djs-discord-bot");
+
+let buttonRow = new MessageActionRow()
+    .addComponent(button)
+    .addComponent(gitcode)
+
 let embed = new MessageEmbed()
 .setTitle("Developer Of Aquatic Bot");
 .setColor("RANDOM")
@@ -29,7 +38,7 @@ Aquatic Bot, A Project Of Aquatic Gamerz Was Initially An Idea To Make A Persona
 He Uploaded The File Code In The Github Link Below, the command and event handler idea was by dbd amd more youtuber, credits too given below :) \n Thanks For Using Aquatic Bot Or Its Code \n \n - Aquatic Gamerz
 ");
 
-message.channel.send(button).then(() => {
+message.channel.send({ component: buttonRow }).then(() => {
 message.channel.send(embed).catch(e => { 
 console.error(e); 
 return message.lineReply("Error Occurred!!!");
