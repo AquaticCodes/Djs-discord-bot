@@ -2,12 +2,19 @@ function choose(x) {
 
 const array = [];
 
-const first = x.slice(0, indexOf("||")).trim();
+const first = x.slice(0, x.indexOf("||")).trim();
 
 array.push(first);
 
 const second = x.substring(x.indexOf("||") + 2).trim();
 
+array.push(second);
+
+array.push(first);
+array.push(second);
+array.push(first);
+array.push(second);
+array.push(first);
 array.push(second);
 
 const choosen = Math.floor(Math.random() * array.length);
