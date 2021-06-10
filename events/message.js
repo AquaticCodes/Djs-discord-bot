@@ -61,6 +61,10 @@ if (command.owner && message.author.id != ownerid) {
 return message.lineReplyNoMention("Only My Developer Can Run This Command!!!");
 } else if (command.admins && !adminsid.includes(message.author.id)) {
 return message.lineReplyNoMention("You Aren't A Staff Member To Execute This Command!!");
+} else if (command.nsfw) {
+if (!db.has(`${message.guild.id}.nsfw`)) {
+return message.lineReplyNoMention("NSFW Settings Isn't Active, NSFW Commands Can't Be Used In This Server");
+};
 }
 
 /* P E R M I S S I O N S */
