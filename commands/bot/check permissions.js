@@ -1,4 +1,5 @@
 const db = require("quick.db");
+const { MessageEmbed } = require("discord.js")
 
 module.exports = {
 name: "checkperms",
@@ -29,9 +30,13 @@ await db.push(`${message.guild.id}.checkingpermissions`, "\n Error: Critial, Fil
 }
 
 const data = db.get(`${message.guild.id}.checkingpermissions`);
+let embed = new MessageEmbed()
+.setDescription(data)
+.setTitle("Permissions")
+.setColor("RANDOM")
+.setFooter("ADMINISTRATOR permissions is sufficient for all categories and command!!");
 
-await message.channel.send(data);
-await message.channel.send("ADMINISTRATOR permissions is sufficient for all categories and command!!");
+await message.channel.send(embed);
 checking.delete();
 } else if (category == "mod" || category == "moderation") {
 
@@ -43,9 +48,6 @@ if (!message.guild.me.hasPermission("MANAGE_MESSAGES")) {
 await db.push(`${message.guild.id}.checkingpermissions`, "\nPermissions: Ignorable, Messages \n NEEDED PERMISSIONS: MANAGE MESSAGES \n")
 };
 
-if (!message.guild.me.hasPermission("MANAGE_REACTIONS")) {
-await db.push(`${message.guild.id}.checkingpermissions`, "\nPermissions: Ignorable, Messages/Reactions.manage \n NEEDED PERMISSIONS: MANAGE REACTIONS");
-};
 
 if (!message.guild.me.hasPermission("KICK_MEMBERS")) {
 await db.push(`${message.guild.id}.checkingpermissions`, "\nNecessary Permissions Missing: Required, ? Kick.members? mod/ban \n NEEDED PERMISSIONS: KICK MEMBERS");
@@ -71,10 +73,19 @@ if (!message.guild.me.hasPermission("MANAGE_NICKNAMES")) {
 await db.push(`${message.guild.id}.checkingpermissions`, "Inappropriate Nicknames Manager: Unnecessary/Ignorable, Guild.members/Nicknames.inappropriate \n NEEDED PERMISSIONS: MANAGE_NICKNAMES");
 };
 
-const data = db.get(`${message.guild.id}.checkingpermissions`);
+var data = await db.get(`${message.guild.id}.checkingpermissions`);
+if (data.length <= 0) {
+  checking.delete();
+  return message.channel.send("All Permissions Already Satisfied")
+}
 
-await message.channel.send(data);
-await message.channel.send("ADMINISTRATOR permissions is sufficient for all categories and command!!");
+let embed = new MessageEmbed()
+.setDescription(data)
+.setTitle("Permissions")
+.setColor("RANDOM")
+.setFooter("ADMINISTRATOR permissions is sufficient for all categories and command!!");
+
+message.channel.send(embed);
 checking.delete();
 }
 
