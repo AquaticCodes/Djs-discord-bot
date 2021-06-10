@@ -3,6 +3,7 @@ const fetch = require("node-fetch");
 
 module.exports = {
   name: "nude",
+nsfw: true,
 aliases: ["naked"],
 owner: false,
 admins: false,
