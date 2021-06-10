@@ -14,7 +14,7 @@ run: async (client, message, args) => {
 
 if (!args[0]) { // using Auto-Toggle if user didn't specify to on/off
 
-if (db.has(`${message.guild.id}.nsfw`)) {
+if (!db.has(`${message.guild.id}.nsfw`)) {
 
 db.set(`${message.guild.id}.nsfw`, true)
 message.channel.send(
@@ -31,7 +31,7 @@ message.channel.send(
 };
 
 };
-
+if (args[0]) {
 const toggle = args[0].toLowerCase()
 
 switch(toogle) {
@@ -55,6 +55,6 @@ message.channel.send(
 break;
 
 }
-
+}
 },
 };
