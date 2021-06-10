@@ -87,6 +87,36 @@ let embed = new MessageEmbed()
 
 message.channel.send(embed);
 checking.delete();
+} else if (category == "general") {
+if (!message.guild.me.hasPermission("ATTACH_FILES") {
+await db.push(`${message.guild.id}.checkingpermissions`, "Fatal Error: ATTACH FILES Permissions Missing!!!")
+}
+if (!message.guild.me.hasPermission("ADD_REACTION") {
+await db.push(`${message.guild.id}.checkingpermissions`, "\nCritical Error: Reactions is a very necessary permission! \n NEEDED PERMISSIONS: ADD AND MANAGE REACTIONS")
+}
+if (!message.guild.me.hasPermission("USE_EXTERNAL_EMOJIS") {
+await db.push(`${message.guild.id}.checkingpermissions`, "\nVery Critical Error: USE EXTERNAL EMOJIS PERMISSION MISSING!!!")
+}
+
+var data = await db.get(`${message.guild.id}.checkingpermissions`);
+if (data.length <= 0) {
+  checking.delete();
+  return message.channel.send("All Permissions Already Satisfied")
+}
+
+let embed = new MessageEmbed()
+.setDescription(data)
+.setTitle("Permissions")
+.setColor("RANDOM")
+.setFooter("ADMINISTRATOR permissions is sufficient for all categories and command!!");
+
+message.channel.send(embed);
+checking.delete();
+
+} else {
+message.channel.send(
+"No Such Category Found, Use fun | mod | general"
+)
 }
 
 
