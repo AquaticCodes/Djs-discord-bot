@@ -27,7 +27,7 @@ return message.lineReplyNoMention("Oi, Prefix Shouldn't Contain Spaces!!");
 
 if (args[0].length > 4 && !db.has(`${message.guild.id}_rooted.prefix`)) {
 return message.lineReplyNoMention(
-"Prefix Length Should Not Be More Than 4 Characters, Use Root Features To Extend The Limit :)
+"Prefix Length Should Not Be More Than 4 Characters, Use Root Features To Extend The Limit :)"
 )
 }
 
