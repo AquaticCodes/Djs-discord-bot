@@ -1,7 +1,7 @@
 const random = require("../../functions/random.js");
 
 module.exports = {
-name: "choose"
+name: "choose",
 owner: false,
 admins: false,
 incognito: false,
