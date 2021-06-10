@@ -4,6 +4,7 @@ const fetch = require("node-fetch");
 module.exports = {
   name: "kiss",
   owner: false,
+nsfw: true,
   admins: false,
 category: "idk",
 run: async (client, message, args) => {
