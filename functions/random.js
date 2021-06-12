@@ -31,6 +31,16 @@ return array(random);
 
 }
 
+function makeid(length) {
+   var result           = '';
+   var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+   var charactersLength = characters.length;
+   for ( var i = 0; i < length; i++ ) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+   }
+   return result;
+}
+
 function random() {
 console.log("Methods Unused, Use choose | array to choose a random result between 2 things or between a array");
 }
@@ -38,3 +48,4 @@ console.log("Methods Unused, Use choose | array to choose a random result betwee
 module.exports = random;
 module.exports.choose = choose;
 module.exports.array = array;
+module.exports.key = makeid;
