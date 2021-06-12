@@ -45,6 +45,10 @@ return result;
 }
 }
 
+function randomnumber(x) {
+return Math.floor(Math.random() * x);
+}
+
 function random() {
 console.log("Methods Unused, Use choose | array to choose a random result between 2 things or between a array");
 }
@@ -53,3 +57,4 @@ module.exports = random;
 module.exports.choose = choose;
 module.exports.array = array;
 module.exports.key = makeid;
+module.exports.number = randomnumber;
