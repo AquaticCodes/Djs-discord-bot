@@ -1,7 +1,6 @@
 # Djs-discord-bot
-This is a JavaScript, discord.js bot, v12!!!
+Welcome to aquatic bot's source code..
 
+Aquatic Bot Is A Open Source Discord Bot made in Discord.js[JavaScript/Nodejs]
 
-commands format: 
-
-name, category, authorPermissions[if any], botPermission[if any], owner, ing, admin
+Find Contact option in <a href="https://aquatic.aquaticdev.repl.co" target="_blank">My Basic First Website</a>
