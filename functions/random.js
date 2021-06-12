@@ -37,11 +37,6 @@ function makeid(length) {
    var charactersLength = characters.length;
    for ( var i = 0; i < length; i++ ) {
       result += characters.charAt(Math.floor(Math.random() * charactersLength));
-   if (db.has(result)) {
-i = 0;
-} else {
-return result;
-}
 }
 }
 
