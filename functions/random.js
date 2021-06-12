@@ -45,8 +45,15 @@ return result;
 }
 }
 
-function randomnumber(x) {
-return Math.floor(Math.random() * x);
+function randomnumber(x, y) {
+var value = Math.floor(Math.random() * x);
+
+if (value <= y) {
+value = y + 1;
+}
+
+return value;
+
 }
 
 function random() {
