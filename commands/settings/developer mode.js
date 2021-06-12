@@ -7,6 +7,7 @@ module.exports = {
 name: "devmode",
 owner: false,
 admins: false,
+authorPermission: ["ADMINISTRATOR"],
 incognito: false,
 category: "settings",
 run: async (client, message, args) => {
