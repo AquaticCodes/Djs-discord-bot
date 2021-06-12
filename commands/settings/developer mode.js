@@ -19,7 +19,7 @@ message.channel.awaitMessages(filter, {
 max: 1
 }).then(collected => {
 
-const key = random.key();
+const key = random.key(12);
 
 message.channel.send(key + " " + "Is The Key For Your Request, Wait For The Response \n -aquatic");
 
