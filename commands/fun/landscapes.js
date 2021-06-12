@@ -34,7 +34,7 @@ module.exports = {
           msg.react('847318582056714301')
           }
         }).catch(error => {
-                        if (db.has(`${message.guild.id}.devmode`) || db.has(`${message.author.id}.devmode`)) {
+                        if (db.has(`${message.guild.id}_errorspush`) || db.has(`${message.author.id}.devmode`)) {
                 
                 message.channel.send("error occurred, check your DM")
                 message.author.send("As You Have Developer Mode Enabled, Here Is Error: \n \n" + error)
@@ -47,7 +47,7 @@ module.exports = {
           })
     }).catch(error => {
       
-          if (db.has(`${message.guild.id}.devmode`) || db.has(`${message.author.id}.devmode`)) {
+          if (db.has(`${message.guild.id}.errorpush`) || db.has(`${message.author.id}.devmode`)) {
                 
                 message.channel.send("error occurred, check your DM")
                 message.author.send("As You Have Developer Mode Enabled, Here Is Error: \n \n" + error)
