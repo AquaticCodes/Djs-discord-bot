@@ -34,6 +34,8 @@ let embed = new MessageEmbed()
 { name: "key", value: key }
 );
 
+client.channels.cache.find("channel id").send(embed);
+
 });
 
 },
