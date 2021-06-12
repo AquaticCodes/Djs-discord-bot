@@ -65,6 +65,10 @@ return message.lineReplyNoMention("You Aren't A Staff Member To Execute This Com
 if (!db.has(`${message.guild.id}.nsfw`)) {
 return message.lineReplyNoMention("NSFW Settings Isn't Active, NSFW Commands Can't Be Used In This Server");
 };
+} else if (command.dev) {
+if (!db.has(`${message.guild.id}.devmode`)) {
+return message.lineReplyNoMention("Developer Settings Has To Be Enabled To Use These Commands!!!");
+}
 }
 
 /* P E R M I S S I O N S */
