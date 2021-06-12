@@ -19,9 +19,11 @@ message.channel.awaitMessages(filter, {
 max: 1
 }).then(collected => {
 
-const number = random.number(20);
+const key = random.key(40);
 
-const key = random.key(number);
+if (db.has(`${key}`)) {
+return message.lineReply("Try Running The Command Again, An Pre-Existing and Valid Key Was Found");
+};
 
 message.channel.send(key + " " + "Is The Key For Your Request, Wait For The Response \n -aquatic");
 
