@@ -19,7 +19,7 @@ return message.lineReplyNoMention("Oi, You Need To Specify The Commands Category
 const category = args[0].toLowerCase();
 
 const checking = await message.channel.send(`Checking Permissions For ${category}.., Running The Required Functions and Scripted Code!!! \n Please Wait.. This Shouldn't Take Long..`);
-if (category == "info") {
+if (category == "info" || category=="general") {
 
 if (!message.guild.me.hasPermission("EMBED_LINKS")) {
 await db.push(`${message.guild.id}.checkingpermissions`, "Error: Medium, Links and embeds \n NEEDED PERMISSIONS: EMBED LINKS")
