@@ -5,6 +5,7 @@ const { confirmation } = require("reconlx");
 module.exports = {
 name: "dev/root",
 owner: false,
+dev: true,
 admins: false,
 authorPermission: ["ADMINISTRATOR"],
 run: async (client, message, args) => {
