@@ -18,13 +18,17 @@ const todo = args[0].toLowerCase();
 
 const key = args[1];
 
-const function = args.slice(2).trim();
+const functions = args.slice(2).trim();
 
-if (todo == "add"||"subtract"||"set"||"push"!function) {
+if (todo == "add"||"subtract"||"set"||"push" && !function) {
 return message.lineReplyNoMention("Please Give A Value To Do Set | Add | subtract | push");
 }
 
-db.todo(`${message.guild.id}${key}`
+if (todo == "add"||"subtract"||"set"||"push") {
+db.todo(`${message.guild.id}${key}`, ${functions});
+} else {
+db.todo(`${message.guild.id}${key}`);
+}
 
 },
 };
