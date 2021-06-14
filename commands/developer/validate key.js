@@ -27,7 +27,9 @@ return message.lineReplyNoMention("No Such Key Found:" + " " + key);
 
 const uid = db.get(`${key}_uid`);
 
-db.set(`${key}#devmode`, true)
+const koy = db.get(`${key`);
+
+db.set(`${koy}#devmode`, true)
 db.delete(`${key}`)
 client.channels.cache.get(`${cid}`).send(`Congrats, As Per The Request Of <@${uid}> Your Request Number (${key}) Was Validated And Thus Your Server Has Been Approved To Use Developer Options.. :tada:`);
 message.channel.send(`${key} is now valid`);
