@@ -70,7 +70,7 @@ if (!db.has(`${message.guild.id}_devmode`)) {
 return message.lineReplyNoMention("Developer Settings Has To Be Enabled To Use These Commands!!!");
 }
 } else if (command.root) {
-if (!db.has(`${message.guild.id}_root`) {
+if (!db.has(`${message.guild.id}_root`)) {
 return message.lineReply("Oi, No Root Detected, Is Root Installed?");
 }
 }
