@@ -31,7 +31,6 @@ message.channel.send(
 };
 
 };
-if (args[0]) {
 const toggle = args[0].toLowerCase()
 
 switch(toogle) {
@@ -53,8 +52,8 @@ message.channel.send(
 );
 
 break;
+}
 
-}
-}
+
 },
 };
