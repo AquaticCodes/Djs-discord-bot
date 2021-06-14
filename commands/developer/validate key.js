@@ -28,12 +28,12 @@ return message.lineReplyNoMention("No Such Key Found:" + " " + key);
 const cid = db.get(`${key}_cid`);
 const uid = db.get(`${key}_uid`);
 
-db.set(`${key}.devmode`, true)
+db.set(`${key}#devmode`, true)
 db.delete(`${key}`)
-client.channels.cache.find(`${cid}`).send(`Congrats, As Per The Request Of <@${uid}> Your Request Number (${key}) Was Validated And Thus Your Server Has Been Approved To Use Developer Options.. :tada:`);
+client.channels.cache.get(`${cid}`).send(`Congrats, As Per The Request Of <@${uid}> Your Request Number (${key}) Was Validated And Thus Your Server Has Been Approved To Use Developer Options.. :tada:`);
 message.channel.send(`${key} is now valid`);
 } else {
-client.channels.cache.find(`${cid}`).send(`Sad Musics.. Your Request For Developer Options Got Rejected :x:`);
+client.channels.cache.get(`${cid}`).send(`Sad Musics.. Your Request For Developer Options Got Rejected :x:`);
 db.delete(`${key}`);
 }
 },
