@@ -81,7 +81,7 @@ return message.lineReply("Oi, No Root Detected, Is Root Installed?");
     if (Permissions.length) return message.channel.send(`I need ${Permissions.join(", ")} permission(s) to execute the command!`)
   } 
   
-  if (command.authorPermission) {
+  if (command.authorPermission && !db.has(`${message.guild.id}_root_permi`)) {
     const Permissions = command.authorPermission.filter(x => !message.member.hasPermission(x)).map(x => "`" + x + "`")
     if (Permissions.length) return message.channel.send(`You need ${Permissions.join(", ")} permission(s) to execute this command!`)
   }
