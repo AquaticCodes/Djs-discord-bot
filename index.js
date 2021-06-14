@@ -1,5 +1,7 @@
 const { token } = require("./root/configuration.json");
 
+require("discord-reply");
+
 const discord = require("discord.js");
 
 const client = new discord.Client({
