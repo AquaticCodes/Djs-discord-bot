@@ -25,7 +25,7 @@ const key = args[1];
 
 const functions = args.slice(2).trim();
 
-if (todo == "add"||"subtract"||"set"||"push" && !function) {
+if (todo == "add"||"subtract"||"set"||"push" && !functions) {
 return message.lineReplyNoMention("Please Give A Value To Do Set | Add | subtract | push");
 }
 
@@ -42,7 +42,7 @@ message.channel.send(`${todo} for ${message.guild.id}${key} has been done succes
 db.push(`${message.guild.id}${key}`, functions).catch(e => { message.channel.send(e); });
 message.channel.send(`${todo} for ${message.guild.id}${key} has been done successfully!!!`);
 } else if (todo == "delete") {
-if (function) {
+if (functions) {
 db.delete(`${message.guild.id}${key}`, functions).catch(e => { message.channel.send(e); });
 } else {
 db.delete(`${message.guild.id}${key}`).catch(e => { message.channel.send(e); });
@@ -53,7 +53,7 @@ message.channel.send(db.all(`${message.guild.id}${key}`)).catch(e => { message.c
 } else if (todo == "get") {
 message.channel.send(db.get(`${message.guild.id}${key}`)).catch(e => { message.channel.send(e); });
 } else if (todo == "fetch") {
-message.channel.send(db.fetch(`${message.guild.id}${key}`).catch(e => { message.channel.send(e); });
+message.channel.send(db.fetch(`${message.guild.id}${key}`)).catch(e => { message.channel.send(e); });
 }
 } else {
 message.channel.send(`Database Functionality Error: At ${args.join(" ")}, ${args[0]} \n \n ${args[0]}(Function Error:65:31, no such function exists)`)
