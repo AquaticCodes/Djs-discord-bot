@@ -4,6 +4,7 @@ module.exports = {
 name: "dev/prefix",
 owner: false,
 dev: true,
+authorPermission: ["ADMINISTRATOR"],
 admins: false,
 incognito: true,
 run: async (client, message, args) => {
