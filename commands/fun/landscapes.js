@@ -21,7 +21,7 @@ module.exports = {
         let wow = new discord.MessageEmbed()
         .setDescription(`**` + title + `**`)
         .setImage(amazeme)
-        .setFooter(`Credits to r/EarthPorn`)
+        .setFooter(`Credits to [r/EarthPorn](`)
         .setColor("RANDOM")
         message.channel.send(wow).then(msg => {
           if (db.has(`${message.guild.id}_reactionjs`)) {
@@ -34,28 +34,27 @@ module.exports = {
           msg.react('847318582056714301')
           }
         }).catch(error => {
-                        if (db.has(`${message.guild.id}_errorspush`) || db.has(`${message.author.id}.devmode`)) {
-                
-                message.channel.send("error occurred, check your DM")
-                message.author.send("As You Have Developer Mode Enabled, Here Is Error: \n \n" + error)
-                console.log(error)
-              } else {
-              message.channel.send("Error Occurred While Sending and reacting to messages")
-              console.log(error)
-              }
+                        if (db.has(`${message.guild.id}_errorspush`)) {
+message.author.send("Here Is The Error:" + " " + e);
+message.channel.send("Unexpected Error Occurred, Check Your DM, If You Didn't Recive DM, Enable DM!!!");
+console.error(e);
+} else {
+message.channel.send("Unexpected Error Occurred!!");
+console.error(e);
+}
 
           })
     }).catch(error => {
       
-          if (db.has(`${message.guild.id}.errorpush`) || db.has(`${message.author.id}.devmode`)) {
-                
-                message.channel.send("error occurred, check your DM")
-                message.author.send("As You Have Developer Mode Enabled, Here Is Error: \n \n" + error)
-                console.log(error)
-              } else {
-              message.channel.send("Error Occurred While Sending and reacting to messages")
-              console.log(error)
-              }
+          if (db.has(`${message.guild.id}_errorspush`)) {
+message.author.send("Here Is The Error:" + " " + e);
+message.channel.send("Unexpected Error Occurred, Check Your DM, If You Didn't Recive DM, Enable DM!!!");
+console.error(e);
+} else {
+message.channel.send("Unexpected Error Occurred!!");
+console.error(e);
+}
+
       
     });
 
