@@ -10,7 +10,7 @@ incognito: false,
 run: async (client, message, args) => {
 
 const key = args[0];
-const cid = db.get(`${key}.cid`);
+const cid = db.get(`${key}_cid`);
 if (!args[0]) {
 return message.lineReplyNoMention(`${message.author}, please provide a key`);
 };
@@ -25,7 +25,6 @@ if (!db.has(`${key}`)) {
 return message.lineReplyNoMention("No Such Key Found:" + " " + key);
 };
 
-const cid = db.get(`${key}_cid`);
 const uid = db.get(`${key}_uid`);
 
 db.set(`${key}#devmode`, true)
