@@ -28,9 +28,9 @@ return message.lineReply("Try Running The Command Again, An Pre-Existing and Val
 
 message.channel.send(key + " " + "Is The Key For Your Request, Wait For The Response \n -aquatic");
 
-db.set(`${key}`, message.guild.id);
-db.set(`${key}.uid`, message.author.id);
-db.set(`${key}.cid`, message.channel.id);
+db.set(`${key}`, `${message.guild.id}`);
+db.set(`${key}_uid`, `${message.author.id}`);
+db.set(`${key}_cid`, `${message.channel.id}`);
 
 let embed = new MessageEmbed()
 .setTitle("Developer Mode Request")
