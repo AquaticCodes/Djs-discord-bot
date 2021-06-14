@@ -12,8 +12,8 @@ return message.lineReply("You Must Ask A Request To Enable Developer Mode, To Su
 }
 
 message.channel.send(
-"Beware Of Your Options And Settings You Use, You May Manually Destroy The Bot Or Expose Database Or Destroy Security!!!")
-)
+"Beware Of Your Options And Settings You Use, You May Manually Destroy The Bot Or Expose Database Or Destroy Security!!!"
+);
 
 if (!args[0]) {
 if (!db.has(`${message.guild.id}_devmode`)) {
