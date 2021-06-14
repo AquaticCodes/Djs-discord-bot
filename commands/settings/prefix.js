@@ -25,6 +25,15 @@ if (args[1]) {
 return message.lineReplyNoMention("Oi, Prefix Shouldn't Contain Spaces!!");
 };
 
+if (args[0].toLowerCase() == "trace"||"logs") {
+const log = db.get(`$message.guild.id}.prefix`);
+const reversed = log.reverse();
+
+for (var i = 0; i < 3; i++) {
+message.channel.send(reversed[i])
+}
+}
+
 if (args[0].length > 4 && !db.has(`${message.guild.id}_extendprefix`)) {
 return message.lineReplyNoMention(
 "Prefix Length Should Not Be More Than 4 Characters, Use Root Features To Extend The Limit :)"
