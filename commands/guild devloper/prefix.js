@@ -38,7 +38,7 @@ case "enable":
 case "true":
 
 db.set(`${message.guild.id}_extendprefix`, true);
-message.channel.send("Prefix Length Has Been Extended To Unlimited"):
+message.channel.send("Prefix Length Has Been Extended To Unlimited");
 
 break;
 
