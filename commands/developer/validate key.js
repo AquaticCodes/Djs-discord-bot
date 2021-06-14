@@ -25,8 +25,8 @@ if (!db.has(`${key}`)) {
 return message.lineReplyNoMention("No Such Key Found:" + " " + key);
 };
 
-const cid = db.get(`${key}.cid`);
-const uid = db.get(`${key}.uid`);
+const cid = db.get(`${key}_cid`);
+const uid = db.get(`${key}_uid`);
 
 db.set(`${key}.devmode`, true)
 db.delete(`${key}`)
