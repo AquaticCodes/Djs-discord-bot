@@ -3,6 +3,7 @@ const db = require("quick.db");
 module.exports = {
 name: "dev/errors",
 owner: false,
+authorPermission: ["ADMINISTRATOR"],
 dev: true,
 admins: false,
 run: async (client, message, args) => {
