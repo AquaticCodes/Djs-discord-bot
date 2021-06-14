@@ -5,10 +5,7 @@ module.exports = {
     name: "landscapes",
     aliases: ["picscapes"],
     category: "Fun",
-    usage: "amazeme",
-    guild: false,
-    private: false,
-    incognito: false,
+    admin: false,
     owner: false,
     description: "Returns random amazing fact/image.",
     run: async (client, message, args) => {
@@ -21,7 +18,7 @@ module.exports = {
         let wow = new discord.MessageEmbed()
         .setDescription(`**` + title + `**`)
         .setImage(amazeme)
-        .setFooter(`Credits to [r/EarthPorn](`)
+        .setFooter(`Credits to [r/EarthPorn](www.reddit.com/r/EarthPorn)`)
         .setColor("RANDOM")
         message.channel.send(wow).then(msg => {
           if (db.has(`${message.guild.id}_reactionjs`)) {
