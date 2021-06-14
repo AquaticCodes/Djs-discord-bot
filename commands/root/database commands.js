@@ -54,7 +54,6 @@ message.channel.send(db.all(`${message.guild.id}${key}`)).catch(e => { message.c
 message.channel.send(db.get(`${message.guild.id}${key}`)).catch(e => { message.channel.send(e); });
 } else if (todo == "fetch") {
 message.channel.send(db.fetch(`${message.guild.id}${key}`)).catch(e => { message.channel.send(e); });
-}
 } else {
 message.channel.send(`Database Functionality Error: At ${args.join(" ")}, ${args[0]} \n \n ${args[0]}(Function Error:65:31, no such function exists)`)
 }
