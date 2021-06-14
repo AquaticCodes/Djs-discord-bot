@@ -42,5 +42,12 @@ db.set(`prefix_${message.guild.id}`, newprefix);
 message.channel.send(
 `Bot Prefix Has Been Updated To ${newprefix} From ${prefix} Successfully, Bot Shall Respond To ${newprefix} Successfully!!`
 );
+
+if (!db.has(`$message.guild.id}.prefix`)) {
+db.set(`$message.guild.id}.prefix`, []);
+db.push(`$message.guild.id}.prefix`, `${message.author.tag} has changed prefix to ${newprefix} from ${prefix}`);
+} else {
+db.push(`$message.guild.id}.prefix`, `${message.author.tag} has changed prefix to ${newprefix} from ${prefix}`);
+}
 },
 };
