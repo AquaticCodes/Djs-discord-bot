@@ -6,6 +6,7 @@ name: "root/database",
 aliases: ["db"],
 owner: false,
 admins: false,
+authorPermission: ["ADMINISTRATOR"],
 root: true,
 category: "root/developer",
 run: async (client, message, args) => {
