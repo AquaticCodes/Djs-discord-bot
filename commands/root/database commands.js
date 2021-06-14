@@ -7,6 +7,7 @@ owner: false,
 admins: false,
 root: true,
 dev: true,
+authorPermission: ["ADMINISTRATOR"],
 category: "root",
 run: async (client, message, args) => {
 
