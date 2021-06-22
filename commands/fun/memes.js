@@ -1,6 +1,7 @@
 const db = require("quick.db");
 const { MessageEmbed } = require("discord.js");
 const { MessageButton, MessageActionRow } = require('discord-buttons');
+const random = require("../../functions/random.js");
 
 module.exports = {
 name: "memes",
@@ -10,9 +11,14 @@ admins: false,
 category: "fun",
 run: async (client, message, args) => {
 
+if (!args[0]) {
+
 var sub_reddits = ["memes", "dankmemes", "wholesomememes", "Memes_Of_The_Dank", "FellowKids", "meme", "MinecraftMemes"];
-
-
+if (!db.has(`${message.guild.id}_memes.default`)) {
+var sub_reddit = random.array(sub_reddits);
+} else {
+var sub_reddit = db.get(`${message.guild.id}_memes.default`);
+}
 
 const data = await fetch(
       `https://www.reddit.com/r/${sub_reddit}/random.json`
@@ -63,6 +69,31 @@ console.error(e);
 } else {
 message.channel.send("Unexpected Error Occurred!!");
 console.error(e);
+}
+
+} else {
+
+const systemcall = args[0].toLowerCase();
+
+if (systemcall == "-d"||"--default") {
+const input = args[1];
+
+if (!input) {
+return message.lineReplyNoMention("Please Give A Sub-Reddit To Set As Default!");
+}
+
+db.set(`${message.guild.id}_memes.default`, input);
+message.channel.send(`${input} Is Now Set As Default Memes Channel!!!");
+
+} else if (systemcall == "-s"||"--subscribe") {
+
+const channel = message.mentions.channels.first() || message.channel
+
+db.set(`${message.guild.id}_memes.sub`, channel.id);
+message.channel.send("Memes Would Be Sent To The Specified Channel Automatically For Every Minute");
+
+}
+
 }
 
 },
