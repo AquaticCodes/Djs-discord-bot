@@ -83,7 +83,7 @@ return message.lineReplyNoMention("Please Give A Sub-Reddit To Set As Default!")
 }
 
 db.set(`${message.guild.id}_memes.default`, input);
-message.channel.send(`${input} Is Now Set As Default Memes Channel!!!");
+message.channel.send(`${input} Is Now Set As Default Memes Channel!!!`);
 
 } else if (systemcall == "-s"||"--subscribe") {
 
@@ -91,6 +91,10 @@ const channel = message.mentions.channels.first() || message.channel
 
 db.set(`${message.guild.id}_memes.sub`, channel.id);
 message.channel.send("Memes Would Be Sent To The Specified Channel Automatically For Every Minute");
+
+} else {
+
+return message.lineReply("Bad Call");
 
 }
 
