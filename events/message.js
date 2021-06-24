@@ -10,18 +10,6 @@ require("discord-reply");
 
 module.exports.run = async (client, message) => {
 
-if (db.has(`${message.guild.id}_memes.sub`)) {
-
-setInterval(function() {
-
-const memes = db.get(`${message.guild.id}_memes.sub`)
-
-client.guilds.cache.get(`${memes}`).send(embed);
-
-}, 60000);
-
-}
-
 if (message.author.bot || !message.guild || db.has(`${message.author.id}_blacklisted`)) {
 return;
 }
