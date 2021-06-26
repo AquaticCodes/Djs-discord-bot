@@ -49,6 +49,50 @@ let channel_embed = new MessageEmbed()
 .setDescription(`${message.author.tag} has kicked ${user.tag} from ${message.guild.name} Successfully`)
 .setColor("RANDOM");
 
+/*
+
+At This Point Just Before We Kick The Person Out, 
+
+We Will Match Some Conditions:
+
+-We Will Compare Roles In Different Manner Unless The User Has Enabled Root And Disabled This,
+
+We Do So To Check Out:
+
+- if bot role is less than the person who is to be kicked
+
+- if bot role is exactly equal to the person to be kicked
+
+- if the person who executed the command has less role than the person to be kicked
+
+- if the person executing command has equal role to the person to be kicked!
+
+If Any Of The Above Cases Matches, Then The Execution Of Command Will Stop With A Warn/Error In The Discord Channel
+
+*/
+
+if (!db.has(`${message.guild.id}_root_rolesscan)) {
+
+if (member.roles.highest.position > message.guild.member(client.user).roles.highest.position) {
+
+return message.lineReply(`Hey Wait, \n But ${user} Has Highest Role Which Is Greater Than Me 😅`);
+
+} else if (member.roles.highest.position == message.guild.member(client.user).roles.highest.position) {
+
+return message.lineReply(`Hey Wait Tho, Did You Look, ${user} And I Have Highest Roles Equal`);
+
+} else if (member.roles.highest.position > message.guild.member(message.author).roles.highest.position) {
+
+return message.lineReply(`You Can't Kick A Person Whose Roles Is Higher Than Of Yours, And Thus You Can't Kick ${user}.`);
+
+} else if (member.roles.highest.position == message.guild.member(message.author).roles.highest.position) {
+
+return message.lineReply(`You Both Have Same Highest Role, So You Just Can't Kick Each Other!!`);
+
+}
+
+}
+
 member.kick(`${reason}`).then(() => { // if member is successfully kicked
 
 message.channel.send(channel_embed);
