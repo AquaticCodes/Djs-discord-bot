@@ -71,7 +71,7 @@ If Any Of The Above Cases Matches, Then The Execution Of Command Will Stop With 
 
 */
 
-if (!db.has(`${message.guild.id}_root_rolesscan)) {
+if (!db.has(`${message.guild.id}_root_rolesscan`)) {
 
 if (member.roles.highest.position > message.guild.member(client.user).roles.highest.position) {
 
