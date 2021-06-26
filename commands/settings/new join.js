@@ -8,33 +8,13 @@ admins: false,
 category: "settings",
 run: async (client, message, args) => {
 
-if (args[0]) {
+/* 
 
-const toggle = args[0].toLowerCase();
+This command Analyzes The Database And Auto-Toggles The Setting!!
 
-switch(toggle) {
+Making Auto-Toggler And Other Functions To Be Done Below
 
-case "on":
-case "enable":
-case "true":
-
-break;
-
-case "off":
-case "disable":
-case "false":
-
-break;
-
-default:
-
-}
-
-} else {
-
-
-
-}
+*/
 
 },
 };
