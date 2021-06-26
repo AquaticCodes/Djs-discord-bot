@@ -6,6 +6,7 @@ aliases: ["auto-welcome"],
 owner: false,
 admins: false,
 category: "settings",
+authorPermission: ["ADMINISTRATOR"],
 run: async (client, message, args) => {
 
 /* 
