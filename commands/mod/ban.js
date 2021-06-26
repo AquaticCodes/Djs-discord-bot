@@ -27,6 +27,23 @@ if (!reason) {
 return message.lineReply("Ban Is Case-Sensitive, So Specify A Reason!");
 }
 
+/*
+
+Making Embeds For Kicked User And Guild
+
+*/
+
+let user_embed = new MessageEmbed()
+.setTitle("You Were Banned")
+.setDescription(`${message.author.tag} Has Banned You From ${message.guild.name} For ${reason}`);
+.setColor("RANDOM");
+
+let channel_embed = new MessageEmbed()
+.setTitle(`Banned A Member`)
+.setDescription(`${message.author.tag} has Banned ${user.tag} from ${message.guild.name} Successfully`)
+.setColor("RANDOM");
+
+
 let member = message.guild.member(user);
 
 if (!member) { //if no such user is in guild
@@ -47,9 +64,9 @@ and we are using a try and catch so that everything is safe  and returns error o
 
 if (!db.has(`${message.guild.id}.banned_logs`)) {
 db.set(`${message.guild.id}.banned_logs`, []); //prepare database
-db.push(`${message.guild.id}.banned_logs`, `${message.author.tag} Has Banned ${user.tag} From The Server On ${d} For A Reason Of ${reason}`); //save data into database for later uses..
+db.push(`${message.guild.id}.banned_logs`, `${message.author.tag} Has Banned ${user.tag} From The Server For A Reason Of ${reason}`); //save data into database for later uses..
 } else {
-db.push(`${message.guild.id}.banned_logs`, `${message.author.tag} Has Banned ${user.tag} From The Server On ${d} For A Reason Of ${reason}`); //save data into database for later uses..
+db.push(`${message.guild.id}.banned_logs`, `${message.author.tag} Has Banned ${user.tag} From The Server For A Reason Of ${reason}`); //save data into database for later uses..
 }
 
 } catch(e) { // what to do with error
