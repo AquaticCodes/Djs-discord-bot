@@ -33,7 +33,7 @@ if (!member) { //if no such user is in guild
 return message.lineReply("No Such Member Found In This Server!!");
 } else {
 
-member.kick(`${reason`).then(() => { // if member is successfully kicked
+member.kick(`${reason}`).then(() => { // if member is successfully kicked
 
 message.channel.send(channel_embed);
 
