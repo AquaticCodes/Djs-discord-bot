@@ -33,6 +33,22 @@ if (!member) { //if no such user is in guild
 return message.lineReply("No Such Member Found In This Server!!");
 } else {
 
+/*
+
+Making Embeds For Kicked User And Guild
+
+*/
+
+let user_embed = new MessageEmbed()
+.setTitle("You Were Kicked")
+.setDescription(`${message.author.tag} Has Kicked You From ${message.guild.name} For ${reason}`);
+.setColor("RANDOM");
+
+let channel_embed = new MessageEmbed()
+.setTitle(`Kicked A Member`)
+.setDescription(`${message.author.tag} has kicked ${user.tag} from ${message.guild.name} Successfully`)
+.setColor("RANDOM");
+
 member.kick(`${reason}`).then(() => { // if member is successfully kicked
 
 message.channel.send(channel_embed);
@@ -47,9 +63,9 @@ and we are using a try and catch so that everything is safe  and returns error o
 
 if (!db.has(`${message.guild.id}.kicked_logs`)) {
 db.set(`${message.guild.id}.kicked_logs`, []); //prepare database
-db.push(`${message.guild.id}.kicked_logs`, `${message.author.tag} Has kicked ${user.tag} From The Server On ${d} For A Reason Of ${reason}`); //save data into database for later uses..
+db.push(`${message.guild.id}.kicked_logs`, `${message.author.tag} Has kicked ${user.tag} From The Server For A Reason Of ${reason}`); //save data into database for later uses..
 } else {
-db.push(`${message.guild.id}.kicked_logs`, `${message.author.tag} Has kicked ${user.tag} From The Server On ${d} For A Reason Of ${reason}`); //save data into database for later uses..
+db.push(`${message.guild.id}.kicked_logs`, `${message.author.tag} Has kicked ${user.tag} From The Server For A Reason Of ${reason}`); //save data into database for later uses..
 }
 
 } catch(e) { // what to do with error
