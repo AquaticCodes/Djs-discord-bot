@@ -51,7 +51,7 @@ let channel_embed = new MessageEmbed()
 
 /*
 
-At This Point Just Before We Kick The Person Out, 
+At This Point Just Before We Ban The Person Out, 
 
 We Will Match Some Conditions:
 
@@ -59,13 +59,13 @@ We Will Match Some Conditions:
 
 We Do So To Check Out:
 
-- if bot role is less than the person who is to be kicked
+- if bot role is less than the person who is to be banned
 
-- if bot role is exactly equal to the person to be kicked
+- if bot role is exactly equal to the person to be banned
 
-- if the person who executed the command has less role than the person to be kicked
+- if the person who executed the command has less role than the person to be banned
 
-- if the person executing command has equal role to the person to be kicked!
+- if the person executing command has equal role to the person to be banned!
 
 If Any Of The Above Cases Matches, Then The Execution Of Command Will Stop With A Warn/Error In The Discord Channel
 
