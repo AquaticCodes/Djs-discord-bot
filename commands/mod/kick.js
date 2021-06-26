@@ -55,7 +55,7 @@ At This Point Just Before We Kick The Person Out,
 
 We Will Match Some Conditions:
 
--We Will Compare Roles In Different Manner Unless The User Has Enabled Root And Disabled This,
+-We Will Compare Roles In Different Manner,
 
 We Do So To Check Out:
 
@@ -70,8 +70,6 @@ We Do So To Check Out:
 If Any Of The Above Cases Matches, Then The Execution Of Command Will Stop With A Warn/Error In The Discord Channel
 
 */
-
-if (!db.has(`${message.guild.id}_root_rolesscan`)) {
 
 if (member.roles.highest.position > message.guild.member(client.user).roles.highest.position) {
 
@@ -88,8 +86,6 @@ return message.lineReply(`You Can't Kick A Person Whose Roles Is Higher Than Of 
 } else if (member.roles.highest.position == message.guild.member(message.author).roles.highest.position) {
 
 return message.lineReply(`You Both Have Same Highest Role, So You Just Can't Kick Each Other!!`);
-
-}
 
 }
 
