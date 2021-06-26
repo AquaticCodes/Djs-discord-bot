@@ -37,7 +37,7 @@ const embed = new MessageEmbed()
 
 const channel_embed = new MessageEmbed()
 .setTitle("Bye Bye 👋")
-.setDescription(`Thanks For Making Us A Part Of You ${message.guild.name}, Hopefully We May Meet Again, I Will Leave The Invite Link Below!")
+.setDescription(`Thanks For Making Us A Part Of You ${message.guild.name}, Hopefully We May Meet Again, I Will Leave Useful Links Below!`)
 .setColor("RANDOM");
 
 /* 
