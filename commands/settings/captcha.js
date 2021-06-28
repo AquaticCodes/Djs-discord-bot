@@ -2,6 +2,7 @@ const db = require('quick.db')
 
 module.exports = {
     name : 'captcha',
+    authorPermission: ["ADMINISTRATOR"],
     owner: false,
     admins: false,
     category: "settings",
