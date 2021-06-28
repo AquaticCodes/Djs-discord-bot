@@ -18,6 +18,8 @@ return message.lineReply("Specify On/Off");
         } else if(args[0].toLowerCase() === 'off') {
             await db.delete(`captcha-${message.guild.id}`)
             message.channel.send('Turned off captcha feature')
-        }
+        } else {
+return message.lineReply("Specify On/Off Only");
+}
     }
 }
