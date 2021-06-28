@@ -79,6 +79,14 @@ console.error(e);
 
 // To Turn Off Welcomer..
 
+const message = db.get(`${message.guild.id}.welcomer`);
+const channelid = db.get(`${message.guild.id}.welcomer_channel`);
+
+db.delete(`${message.guild.id}.welcomer`, message);
+db.delete(`${message.guild.id}.welcomer_channel`, channelid);
+
+message.channel.send("Turned Off Welcome Message Feature");
+
 }
 
 },
