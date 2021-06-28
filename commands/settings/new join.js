@@ -10,6 +10,8 @@ category: "settings",
 authorPermission: ["ADMINISTRATOR"],
 run: async (client, message, args) => {
 
+try {
+
 /* 
 
 This command Analyzes The Database And Auto-Toggles The Setting!!
@@ -86,6 +88,19 @@ db.delete(`${message.guild.id}.welcomer`, message);
 db.delete(`${message.guild.id}.welcomer_channel`, channelid);
 
 message.channel.send("Turned Off Welcome Message Feature");
+
+}
+
+} catch(e) {
+
+if (db.has(`${message.guild.id}_errorspush`)) {
+message.author.send("Here Is The Error:" + " " + e).catch(e => { return console.error(e); });
+message.channel.send("Unexpected Error Occurred, Check Your DM, If You Didn't Recive DM, Enable DM!!!");
+console.error(e);
+} else {
+message.channel.send("Unexpected Error Occurred!!");
+console.error(e);
+}
 
 }
 
