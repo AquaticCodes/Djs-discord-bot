@@ -20,7 +20,7 @@ Making Auto-Toggler And Other Functions To Be Done Below
 
 */
 
-if (!db.has(`${message.guild.id}.welcomer`)) {
+if (!db.has(`${message.guild.id}_welcome`)) {
 
 const channel = message.mentions.channels.first() || message.channel;
 
@@ -52,8 +52,8 @@ const third = second.replace("${user.syntaxTag}", `${message.author.tag}`);
 
 const check = third.replace("${server}", `${message.guild.name}`);
 
-db.set(`${message.guild.id}.welcomer`, welcome);
-db.set(`${message.guild.id}.welcomer_channel`, channel.id);
+db.set(`${message.guild.id}_welcome`, welcome);
+db.set(`${message.guild.id}_welcomeChannel`, channel.id);
 message.channel.send("Here Is A Show Of What You Choosed: \n \n" + check);
 
 }).catch(e => { 
@@ -81,11 +81,8 @@ console.error(e);
 
 // To Turn Off Welcomer..
 
-const message = db.get(`${message.guild.id}.welcomer`);
-const channelid = db.get(`${message.guild.id}.welcomer_channel`);
-
-db.delete(`${message.guild.id}.welcomer`, message);
-db.delete(`${message.guild.id}.welcomer_channel`, channelid);
+db.delete(`${message.guild.id}_welcome`);
+db.delete(`${message.guild.id}_welcomeChannel`);
 
 message.channel.send("Turned Off Welcome Message Feature");
 
