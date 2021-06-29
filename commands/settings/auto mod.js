@@ -106,14 +106,46 @@ if (pkg == "as") {
 
 // If Aquatic was Choosen
 
-} else if (pkg == "ml-as") {
+try { // try to do stuff with database
+
+db.set(`${message.guild.id}_swearing`, "aquatic").then(() => {
+
+message.channel.send("Aquatic-Swear Will Take Care Of Server Now, \n \n If You Change And Equip Multi-lang Ez-antiswear, aquatic-Swear will stop working");
+
+});
+
+} catch(e) { // catch and execute error
+message.channel.send("Database Problem, Try After A While, If Problem Persists, Meet Aquatic_Gamerz#4501");
+client.users.cache.get("765151089620156418").send(e);
+}
+
+} else if (pkg == "ml-as") { 
 
 // If Multi-lang Was Choosen
+
+try { // try to manage database and packages
+
+db.set(`${message.guild.id}_swearing`, "multi-lang").then(() => {
+
+message.channel.send("Multi-Language Swearing Moderation Is Active 🔐");
+
+} catch(e) { // error handling
+
+if (db.has(`${message.guild.id}_errorspush`)) {
+message.author.send("Here Is The Error:" + " " + e).catch(e => { return console.error(e); });
+message.channel.send("Unexpected Error Occurred, Check Your DM, If You Didn't Recive DM, Enable DM!!!");
+console.error(e);
+} else {
+message.channel.send("Unexpected Error Occurred!!");
+console.error(e);
+}
+
+}
 
 } else {
 
 // If No Valid Package Was Choosen
-
+message.channel.send(`No Such Package ${pkg} Available`);
 }
 
 }).catch(e => {
