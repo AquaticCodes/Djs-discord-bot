@@ -148,6 +148,10 @@ console.error(e);
 message.channel.send(`No Such Package ${pkg} Available`);
 }
 
+}).catch(error => {
+
+});
+
 }).catch(e => {
 
 if (db.has(`${message.guild.id}_errorspush`)) {
@@ -158,10 +162,6 @@ console.error(e);
 message.channel.send("Unexpected Error Occurred!!");
 console.error(e);
 }
-
-});
-
-});
 
 }
 
