@@ -128,7 +128,7 @@ try { // try to manage database and packages
 db.set(`${message.guild.id}_swearing`, "multi-lang").then(() => {
 
 message.channel.send("Multi-Language Swearing Moderation Is Active 🔐");
-
+});
 } catch(e) { // error handling
 
 if (db.has(`${message.guild.id}_errorspush`)) {
