@@ -163,7 +163,16 @@ message.channel.send("Unexpected Error Occurred!!");
 console.error(e);
 }
 
-}
+} else if (mode == "-c"||"--captcha") {
+
+// captcha
+
+
+} else if (mode == "-r"||"--raid") {
+
+// Raiding Protection Enable
+
+} else {
 
 switch(mode) {
 
@@ -237,6 +246,7 @@ break;
 
 }
 
+}
 }
 
 },
