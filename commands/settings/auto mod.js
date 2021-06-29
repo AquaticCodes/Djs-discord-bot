@@ -55,6 +55,84 @@ console.error(e);
 
 const mode = args[0].toLowerCase();
 
+if (mode == "-s"||"--swear") {
+
+let filter = m => m.author.id === message.author.id
+
+/* 
+
+Defined A Variable Filter For Message Author,
+Proceeding for A Embed Below
+
+*/
+
+if (!message.guild.me.hasPermission("ADMINISTRATOR")) {
+
+if (!message.guild.me.hasPermission("MANAGE_MESSAGES")) {
+
+return message.lineReply("Nah, I Need A Permission To Delete Messages To Set Up This Feature, \n \n Find @Aquatic Role And Add Manage Messages/Administrator!");
+
+} else if (!messagd.guild.me.hasPermission("MANAGE_ROLES")) {
+
+return message.lineReply("Hey, Get This Slow, I Need To Have A Permission To Add, Remove And Manage Roles \n \n Find @Aquatic And Add Manage Roles / Administrator!");
+
+}
+
+}
+
+let swearChooseEmbed = new MessageEmbed()
+.setTitle("Choose A Method/App/Api/Software")
+.setDescription(`1. Aquatic \n pkg-name: as \n details: This Is A Moderation Service To Ban Badwords In A Guild \n Developed By: Aquatic, No Dependencies \n \n 2. multi-lang antiswear \n pkg-name: ml-as \n Description: A Package Depended On  ez-antiswear To Make A Guild Anti-Swearable, \n Developed by: Aquatic, Ez-antiswear`)
+.addField("Note", "Bot Will Wait 60 Seconds, Type The Pkg-name Given Above To Confirm A Package!")
+.setColor("RANDOM");
+
+message.channel.send(swearChooseEmbed).then(() => {
+
+message.channel.awaitMessages(filter, {
+max: 1,
+time: 60000,
+error: ['time']
+}).then(collected => {
+
+/* 
+
+Collect The Option and add it to data
+
+*/
+
+const pkg = collected.first().content.toLowerCase();
+
+if (pkg == "as") {
+
+// If Aquatic was Choosen
+
+} else if (pkg == "ml-as") {
+
+// If Multi-lang Was Choosen
+
+} else {
+
+// If No Valid Package Was Choosen
+
+}
+
+}).catch(e => {
+
+if (db.has(`${message.guild.id}_errorspush`)) {
+message.author.send("Here Is The Error:" + " " + e).catch(e => { return console.error(e); });
+message.channel.send("Unexpected Error Occurred, Check Your DM, If You Didn't Recive DM, Enable DM!!!");
+console.error(e);
+} else {
+message.channel.send("Unexpected Error Occurred!!");
+console.error(e);
+}
+
+});
+
+});
+
+}
+
 switch(mode) {
 
 case "on":
