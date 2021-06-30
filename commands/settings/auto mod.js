@@ -167,6 +167,115 @@ console.error(e);
 
 // captcha
 
+// filter
+
+let filter = m => m.author.id === message.author.id
+
+if (db.has(`captcha-${message.guild.id}`)) {
+
+/*
+
+If captcha was enabled, change it to disabled!
+
+ask user for confirmation!
+
+*/
+
+message.channel.send("Do You Want To Disable Captcha Feature?[Y/n]").then(() => {
+
+message.channel.awaitMessages(filter, {
+max: 1,
+time: 60000,
+errors: ['time']
+}).then(collected => {
+
+const confirm = collected.first().content.toLowerCase()
+
+if (confirm == "yes"||"y") {
+
+// if its a confirm to turn off captcha
+
+db.delete(`captcha-${message.guild.id}`).then(() => {
+
+message.channel.send(`<a:aquatick:859662636479807498> Captcha Is Now Off!`);
+
+}).catch(e => { return message.channel.send("Database Error"); });
+
+} else if (confirm == "n"||"no") {
+
+// if its a no
+
+return message.lineReply(":x: Cancelled");
+
+} else {
+
+return message.lineReply(":x: Invalid Option");
+
+}
+
+}).catch(error => { message.channel.send("Timeout, Run Command Again"); });
+
+}).catch(e => {
+
+if (db.has(`${message.guild.id}_errorspush`)) {
+message.author.send("Here Is The Error:" + " " + e).catch(e => { return console.error(e); });
+message.channel.send("Unexpected Error Occurred, Check Your DM, If You Didn't Recive DM, Enable DM!!!");
+console.error(e);
+} else {
+message.channel.send("Unexpected Error Occurred!!");
+console.error(e);
+}
+
+});
+
+} else {
+
+/*
+
+If captcha wasn't active!
+
+*/
+
+message.channel.send("Do You Want To Turn On Captcha Feature?[Y/n]").then(() => {
+
+message.channel.awaitMessages(filter, {
+max: 1,
+time: 60000,
+errors: ['time']
+}).then(collected => {
+
+const confirm = collected.first().content.toLowerCase()
+
+if (confirm == "y"||"yes") {
+
+db.set(`captcha-${message.guild.id}`, true).then(() => {
+
+message.channel.send(`<a:aquatick:859662636479807498> Captcha Feature Is Now Active :)`);
+
+}).catch(e => { message.lineReply(":x: Database Error, Try Again Later :)");
+
+} else if (confirm == "n"||"no") {
+
+} else {
+
+}
+
+}).catch(error => { message.lineReply("Timeout, Run Command Again!"); });
+
+}).catch(e => {
+
+if (db.has(`${message.guild.id}_errorspush`)) {
+message.author.send("Here Is The Error:" + " " + e).catch(e => { return console.error(e); });
+message.channel.send("Unexpected Error Occurred, Check Your DM, If You Didn't Recive DM, Enable DM!!!");
+console.error(e);
+} else {
+message.channel.send("Unexpected Error Occurred!!");
+console.error(e);
+}
+
+});
+
+} 
 
 } else if (mode == "-r"||"--raid") {
 
