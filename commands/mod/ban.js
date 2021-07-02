@@ -87,7 +87,7 @@ return message.lineReply(`You Can't Kick A Person Whose Roles Is Higher Than Of 
 
 return message.lineReply(`You Both Have Same Highest Role, So You Just Can't Kick Each Other!!`);
 
-}
+} else {
 
 
 member.ban({ reason: `${reason}`}).then(() => { // if member is successfully kicked
@@ -139,6 +139,6 @@ console.error(e);
 });
 
 }
-
+}
 },
 };
