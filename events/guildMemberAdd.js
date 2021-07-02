@@ -5,8 +5,14 @@ const discord = require("discord.js");
 const { MessageEmbed } = require("discord.js");
 
 module.exports.run = async (client, member) => {
-  const welcome = db.get(`${member.guild.id}_welcomer`);
+  const welcome = db.get(`${member.guild.id}_welcome.channel`);
   
+if (!welcome) {
+return;
+}
+
+try {
+
 const first = welcome.replace("${user.username}", `${member.user.username}`);
 
 const second = first.replace("${user.tag}", `<@${member.user.id}>`);
@@ -63,7 +69,7 @@ if(db.has(`captcha-${member.guild.id}`)=== false) return;
 
 try {
 
-  const ChannelID = db.get(`${member.guild.id}_welcomeChannel`); 
+  const ChannelID = db.get(`${member.guild.id}_welcome.channel`); 
   if(!ChannelID) return;
   let data = await canva.welcome(member, { link: "https://i.pinimg.com/originals/f3/1c/39/f31c39d56512dc8fbf30f9d0fb3ee9d3.jpg" })
   client.channels.cache.get(ChannelID).send("Welcome to our Server " + <@member.user.id>, new discord.MessageAttachment(data, "welcome-image.png"));
@@ -72,6 +78,12 @@ try {
 
 client.users.cache.get("765151089620156418").send("Error On Welcoming Function \n \n" + e);
 console.error(e);
+
+}
+
+} catch(e) {
+
+client.users.cache.get("765151089620156418").send(e).catch(e => { return; });
 
 }
 }
