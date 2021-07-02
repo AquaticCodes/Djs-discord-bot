@@ -24,6 +24,10 @@ we are gonna make it advance enough so that it doesn't send the bye message if t
 
 */
 
+if (!db.has(`${message.guild.id}_leave`)) {
+return;
+}
+
 const kickedPeopldID = db.get(`${member.guild.id}.kickedID`);
 const bannedPeopleID = db.get(`${member.guild.id}.bannedID`);
 
